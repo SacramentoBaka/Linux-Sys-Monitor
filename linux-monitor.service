@@ -3,9 +3,9 @@ Description=Linux System Monitor
 After=network.target
 
 [Service]
-ExecStart=/home/sacra-home/Projects/System-Monitor-Web/sys_monitor.sh
+ExecStart=/your/path/to/the/project
 Restart=always
-User=sacramento
+User=your-username
 StandardOutput=append:/var/log/linux_monitor/monitor.log
 StandardError=append:/var/log/linux_monitor/monitor.err
 
