@@ -7,7 +7,7 @@ mkdir -p $(dirname "$LOG_FILE")
 touch "$LOG_FILE"
 
 while true; do
-  TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+  TIMESTAMP=$(TZ='Africa/Johannesburg' date +"%A, %d %B %Y %H:%M:%S %Z")
   CPU=$(top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}')
   MEM_USED=$(free -m | awk '/Mem:/ { print $3 }')
   MEM_TOTAL=$(free -m | awk '/Mem:/ { print $2 }')
@@ -18,13 +18,13 @@ while true; do
 
   # Threshold alerts (simple example)
   if (( $(echo "$CPU > 80" | bc -l) )); then
-    echo "[ALERT] High CPU usage: $CPU% at $TIMESTAMP" | mail -s "High CPU Alert" your@email.com
+    echo "[ALERT] High CPU usage: $CPU% at $TIMESTAMP" | mail -s "High CPU Alert" sacramentobaka@email.com
   fi
   if (( MEM_PERCENT > 90 )); then
-    echo "[ALERT] High Memory usage: $MEM_PERCENT% at $TIMESTAMP" | mail -s "High Memory Alert" your@email.com
+    echo "[ALERT] High Memory usage: $MEM_PERCENT% at $TIMESTAMP" | mail -s "High Memory Alert" sacramentobaka@email.com
   fi
   if (( DISK > 90 )); then
-    echo "[ALERT] High Disk usage: $DISK% at $TIMESTAMP" | mail -s "High Disk Alert" your@email.com
+    echo "[ALERT] High Disk usage: $DISK% at $TIMESTAMP" | mail -s "High Disk Alert" sacramentobaka@email.com
   fi
 
   sleep 60

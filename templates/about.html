@@ -2,13 +2,49 @@
 {% block title %}About | Linux Monitor{% endblock %}
 
 {% block content %}
-<h2>ℹ️ About This Project</h2>
-<p>This Linux System Monitor is a Flask-based web dashboard for visualizing system performance.</p>
-<ul>
-  <li><strong>Frontend:</strong> HTML5 + Chart.js</li>
-  <li><strong>Backend:</strong> Flask + Bash + JSON</li>
-  <li><strong>Data:</strong> Live logs from system monitor script</li>
-</ul>
-<p>Created for learning, DevOps demos, and system automation!</p>
+
+<div class="about-wrapper">
+  <h2>ℹ️ About This Project</h2>
+  <p>
+    The <strong>Linux System Monitor Dashboard</strong> is a lightweight real-time monitoring tool for tracking CPU, Memory, and Disk usage on Linux servers. It’s designed to showcase system automation, frontend dashboarding, and backend scripting skills — ideal for DevOps demos, RPA integrations, or IT observability.
+  </p>
+
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>🧰 Tech Stack</h3>
+      <ul>
+        <li><strong>Frontend:</strong> HTML5, Chart.js, CSS Grid</li>
+        <li><strong>Backend:</strong> Flask (Python)</li>
+        <li><strong>Monitoring Script:</strong> Bash (cron + systemd)</li>
+        <li><strong>OS:</strong> CentOS 9 Linux</li>
+      </ul>
+    </div>
+
+    <div class="about-card">
+      <h3>🎯 Key Features</h3>
+      <ul>
+        <li>Interactive real-time charts (CPU, Memory, Disk)</li>
+        <li>Raw metrics table (last 100 logs)</li>
+        <li>systemd-enabled monitoring script</li>
+        <li>Responsive design for mobile/tablet</li>
+      </ul>
+    </div>
+
+    <div class="about-card">
+      <h3>🙋 My Role</h3>
+      <ul>
+        <li>Designed system architecture</li>
+        <li>Wrote Python Flask backend & HTML UI</li>
+        <li>Created systemd service for persistent monitoring</li>
+        <li>Integrated metrics from Linux CLI to Web UI</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="margin-top: 30px;">
+    🚀 This project demonstrates full-stack capability across system automation, backend APIs, and frontend dashboards — The project is available on GitHub.
+  </p>
+</div>
+
 {% endblock %}
 
