@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Linux Monitor Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h2>System Metrics</h2>
+  <canvas id="cpuChart" width="400" height="100"></canvas>
+  <script>
+    async function loadData() {
+      const res = await fetch('/metrics');
+      const data = await res.json();
+
+      const labels = data.map(d => d.timestamp);
+      const cpu = data.map(d => d.cpu);
+
+      const ctx = document.getElementById('cpuChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'CPU Usage (%)',
+            data: cpu,
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 2,
+            fill: false
+          }]
+        }
+      });
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
+
