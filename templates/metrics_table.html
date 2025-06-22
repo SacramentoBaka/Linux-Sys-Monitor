@@ -2,7 +2,7 @@
 {% block title %}Metrics Table | Linux Monitor{% endblock %}
 
 {% block content %}
-<h2>📋 Raw Metrics (Latest 100)</h2>
+<h2>📋Showing Raw Metrics</h2>
 
 {% if error %}
   <p style="color: red; font-weight: bold;">{{ error }}</p>
@@ -21,8 +21,8 @@
     <tbody>
       {% for entry in metrics %}
       <tr>
-        <td>{{ entry.timestamp }}</td>
-        <td>{{ entry.cpu }}</td>
+       	<td>{{ entry.timestamp | human_time }}</td>
+	<td>{{ entry.cpu }}</td>
         <td>{{ entry.memory }}</td>
         <td>{{ entry.disk }}</td>
       </tr>
@@ -31,4 +31,3 @@
   </table>
 </div>
 {% endblock %}
-

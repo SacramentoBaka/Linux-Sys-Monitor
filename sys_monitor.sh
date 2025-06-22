@@ -7,7 +7,8 @@ mkdir -p $(dirname "$LOG_FILE")
 touch "$LOG_FILE"
 
 while true; do
-  TIMESTAMP=$(TZ='Africa/Johannesburg' date +"%A, %d %B %Y %H:%M:%S %Z")
+
+  TIMESTAMP=$(TZ='Africa/Johannesburg' date -u +"%Y-%m-%dT%H:%M:%SZ")
   CPU=$(top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}')
   MEM_USED=$(free -m | awk '/Mem:/ { print $3 }')
   MEM_TOTAL=$(free -m | awk '/Mem:/ { print $2 }')
