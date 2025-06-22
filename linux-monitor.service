@@ -1,0 +1,14 @@
+[Unit]
+Description=Linux System Monitor
+After=network.target
+
+[Service]
+ExecStart=/path/to/your/project/sys_monitor.sh
+Restart=always
+User=your_username
+StandardOutput=append:/var/log/linux_monitor/monitor.log
+StandardError=append:/var/log/linux_monitor/monitor.err
+
+[Install]
+WantedBy=multi-user.target
+
