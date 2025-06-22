@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}Metrics Table | Linux Monitor{% endblock %}
+
+{% block content %}
+<h2>📋 Raw Metrics (Latest 100)</h2>
+{% if error %}
+  <p style="color:red;">{{ error }}</p>
+{% endif %}
+
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Timestamp</th>
+      <th>CPU (%)</th>
+      <th>Memory (%)</th>
+      <th>Disk (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for entry in metrics %}
+    <tr>
+      <td>{{ entry.timestamp }}</td>
+      <td>{{ entry.cpu }}</td>
+      <td>{{ entry.memory }}</td>
+      <td>{{ entry.disk }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+
